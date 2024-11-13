@@ -1,8 +1,15 @@
-# Hyprshot
+# Hyprwayshot
 
-[![AUR version](https://img.shields.io/aur/version/hyprshot?label=hyprshot&logo=arch+linux)](https://aur.archlinux.org/packages/hyprshot)
-[![AUR git version](https://img.shields.io/aur/version/hyprshot-git?label=hyprshot-git&logo=arch+linux)](https://aur.archlinux.org/packages/hyprshot-git)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Gustash/hyprshot?color=green&logo=github)](https://github.com/Gustash/hyprshot/releases/latest)
+## Differences with Hyprshot
+
+Grim takes more than half a second on my machine when taking a full screen screenshot, so I replaced its use with wayshot
+
+| command                                        | user  | system | cpu | total |
+| ---------------------------------------------- | ----- | ------ | --- | ----- |
+| grim -g '0,0 3440x1440' \| wl-copy             | 0.62s | 0.00s  | 98% | 0.635 |
+| wayshot -s '0,0 3440x1440' --stdout \| wl-copy | 0.03s | 0.01s  | 70% | 0.057 |
+
+# Hyprshot readme
 
 Hyprshot is an utility to easily take screenshot in Hyprland using your mouse.
 
@@ -32,7 +39,7 @@ Activate wayland overlay as described in [README](https://github.com/bsd-ac/wayl
 
 - hyprland (this one should be obvious)
 - jq (to parse and manipulate json)
-- grim (to take the screenshot)
+- wayshot (to take the screenshot)
 - slurp (to select what to screenshot)
 - wl-clipboard (to copy screenshot to clipboard)
 - libnotify (to get notified when a screenshot is saved)
